@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowDown, ArrowUpRight, Menu, Pause, Play, Volume2, VolumeX, X } from "lucide-react";
+import { ArrowDown, ArrowUp, ArrowUpRight, Menu, MessageCircle, Pause, Play, Volume2, VolumeX, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 import collectionReveal from "@/assets/collection-reveal.mp4.asset.json";
@@ -28,6 +28,8 @@ export const Route = createFileRoute("/")({
         content: "A cinematic journey through Indian textiles, heritage prints and modern silhouettes.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: "https://poshakhfabrics.com/cdn/shop/files/MiraeD2-47.jpg?v=1762249388" },
+      { property: "og:site_name", content: "Poshakh Fabrics" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
@@ -59,6 +61,7 @@ function PoshakhLanding() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [muted, setMuted] = useState(true);
   const [paused, setPaused] = useState(false);
+  const [showBackToTop, setShowBackToTop] = useState(false);
 
   useEffect(() => {
     const page = pageRef.current;
@@ -68,6 +71,7 @@ function PoshakhLanding() {
       const max = document.documentElement.scrollHeight - window.innerHeight;
       const progress = max > 0 ? window.scrollY / max : 0;
       page.style.setProperty("--scroll-progress", String(progress));
+      setShowBackToTop(window.scrollY > window.innerHeight);
     };
     const updatePointer = (event: PointerEvent) => {
       page.style.setProperty("--pointer-x", `${event.clientX / window.innerWidth - 0.5}`);
@@ -324,9 +328,40 @@ function PoshakhLanding() {
         <div>
           <a href={SHOP_URL} target="_blank" rel="noreferrer">Shop</a>
           <a href="#story">Story</a>
+          <a href="https://www.instagram.com/poshakhfabrics/" target="_blank" rel="noreferrer" aria-label="Poshakh on Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" style={{display: 'inline-block', verticalAlign: 'middle', marginRight: '4px'}}><rect x="2" y="2" width="20" height="20" rx="5" /><circle cx="12" cy="12" r="5" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" /></svg>
+            Instagram
+          </a>
           <a href="#top">Back to top ↑</a>
         </div>
+        <div className="footer-contact">
+          <a href="mailto:kavita@poshakhfabrics.com">kavita@poshakhfabrics.com</a>
+          <span>·</span>
+          <a href="tel:+919096725484">+91 90967 25484</a>
+        </div>
+        <p className="footer-copy">© {new Date().getFullYear()} Poshakh Fabrics. All rights reserved.</p>
       </footer>
+
+      {/* WhatsApp floating button */}
+      <a
+        className="whatsapp-fab"
+        href="https://wa.me/919096725484?text=Hi%20Poshakh%2C%20I%27d%20like%20to%20know%20more%20about%20your%20collections."
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Chat on WhatsApp"
+      >
+        <MessageCircle size={22} />
+      </a>
+
+      {/* Back to top button */}
+      <button
+        className={`back-to-top ${showBackToTop ? 'is-visible' : ''}`}
+        type="button"
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        aria-label="Back to top"
+      >
+        <ArrowUp size={18} />
+      </button>
     </main>
   );
 }
