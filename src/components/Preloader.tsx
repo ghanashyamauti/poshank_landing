@@ -159,6 +159,22 @@ export function Preloader({ onComplete }: PreloaderProps) {
           Poshakh Fabrics · Est. 1996
         </div>
       </div>
+
+      {/* Little Skip Button at Right Bottom Corner */}
+      <div className="absolute bottom-6 right-6 md:bottom-10 md:right-12 z-30 pointer-events-auto">
+        <button
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation();
+            triggerExit();
+          }}
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[oklch(0.71_0.105_84)]/35 bg-black/50 hover:bg-black/85 hover:border-[oklch(0.71_0.105_84)]/70 text-[oklch(0.96_0.025_83)] hover:text-white backdrop-blur-md transition-all text-[0.62rem] uppercase tracking-[0.22em] font-medium cursor-pointer shadow-sm group"
+          aria-label="Skip intro video"
+        >
+          <span>Skip</span>
+          <span className="text-[oklch(0.71_0.105_84)] transition-transform duration-200 group-hover:translate-x-0.5">→</span>
+        </button>
+      </div>
     </div>
   );
 }
