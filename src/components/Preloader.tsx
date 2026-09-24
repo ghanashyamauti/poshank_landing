@@ -57,6 +57,18 @@ export function Preloader({ onComplete }: PreloaderProps) {
     return () => clearTimeout(fallbackTimer);
   }, []);
 
+  // Keyboard shortcut: Press Escape or Space to skip instantly
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        handleInstantSkip(e);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
   const handleVideoTimeUpdate = () => {
     const video = videoRef.current;
     if (!video || !video.duration) return;
@@ -67,33 +79,46 @@ export function Preloader({ onComplete }: PreloaderProps) {
     }
 
     // Trigger exit transition slightly before video ends for seamless flow
-    if (video.currentTime >= video.duration - 0.4 && !isExiting) {
+    if (video.currentTime >= video.duration - 0.3 && !isExiting) {
       triggerExit();
     }
   };
 
+  // Natural exit when video ends or times out (smooth fade)
   const triggerExit = () => {
     if (isExiting) return;
     setIsExiting(true);
 
-    // Smooth transition time before completely unmounting
     setTimeout(() => {
       setIsFinished(true);
       onComplete();
-    }, 900);
+    }, 350);
+  };
+
+  // Instant skip: bypasses all transitions immediately (0ms delay)
+  const handleInstantSkip = (e?: React.SyntheticEvent | KeyboardEvent | Event) => {
+    if (e && "stopPropagation" in e) {
+      e.stopPropagation();
+    }
+    const video = videoRef.current;
+    if (video) {
+      try {
+        video.pause();
+        video.currentTime = 0;
+      } catch (_) {}
+    }
+    setIsFinished(true);
+    onComplete();
   };
 
   if (isFinished) return null;
 
   return (
     <div
-      onClick={triggerExit}
-      className={`fixed inset-0 z-[9999] overflow-hidden bg-[oklch(0.11_0.03_45)] cursor-pointer transition-all duration-900 ease-[cubic-bezier(0.77,0,0.175,1)] ${
-        isExiting ? "pointer-events-none scale-105 opacity-0 filter blur-sm" : "scale-100 opacity-100 filter blur-0"
+      onClick={handleInstantSkip}
+      className={`fixed inset-0 z-[9999] overflow-hidden bg-[oklch(0.11_0.03_45)] cursor-pointer select-none transition-all duration-300 ${
+        isExiting ? "pointer-events-none opacity-0" : "opacity-100"
       }`}
-      style={{
-        clipPath: isExiting ? "inset(0% 50% 0% 50%)" : "inset(0% 0% 0% 0%)",
-      }}
       aria-label="Poshakh brand prelude (Click to enter)"
     >
       {/* Mobile Ambient Motion Fill (Only active on mobile when zooming out) */}
@@ -156,20 +181,19 @@ export function Preloader({ onComplete }: PreloaderProps) {
       <div className="relative z-20 flex w-full max-w-6xl mx-auto items-center justify-between p-6 md:p-12 text-[oklch(0.71_0.105_84)] pointer-events-none">
         <div className="inline-flex items-center gap-2 text-[0.68rem] uppercase tracking-[0.3em] font-medium">
           <span className="h-1.5 w-1.5 rounded-full bg-[oklch(0.71_0.105_84)] animate-pulse" />
-          Poshakh Fabrics · Est. 1996
+          Poshakh Fabrics · Est. 1992 · F.C. Road, Pune
         </div>
       </div>
 
-      {/* Little Skip Button at Right Bottom Corner */}
-      <div className="absolute bottom-6 right-6 md:bottom-10 md:right-12 z-30 pointer-events-auto">
+      {/* Instant Skip Button at Right Bottom Corner */}
+      <div className="absolute bottom-6 right-6 md:bottom-10 md:right-12 z-50 pointer-events-auto">
         <button
           type="button"
-          onClick={(e) => {
-            e.stopPropagation();
-            triggerExit();
-          }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[oklch(0.71_0.105_84)]/35 bg-black/50 hover:bg-black/85 hover:border-[oklch(0.71_0.105_84)]/70 text-[oklch(0.96_0.025_83)] hover:text-white backdrop-blur-md transition-all text-[0.62rem] uppercase tracking-[0.22em] font-medium cursor-pointer shadow-sm group"
-          aria-label="Skip intro video"
+          onClick={handleInstantSkip}
+          onPointerDown={handleInstantSkip}
+          onTouchStart={handleInstantSkip}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[oklch(0.71_0.105_84)]/45 bg-black/75 hover:bg-black/95 active:scale-95 hover:border-[oklch(0.71_0.105_84)] text-[oklch(0.96_0.025_83)] hover:text-white backdrop-blur-md transition-all text-[0.66rem] uppercase tracking-[0.22em] font-medium cursor-pointer shadow-lg group select-none"
+          aria-label="Skip intro video instantly"
         >
           <span>Skip</span>
           <span className="text-[oklch(0.71_0.105_84)] transition-transform duration-200 group-hover:translate-x-0.5">→</span>

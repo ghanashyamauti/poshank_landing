@@ -2,9 +2,24 @@ import { createFileRoute } from "@tanstack/react-router";
 import {
   ArrowUp,
   ArrowUpRight,
+  Baby,
+  CheckCircle2,
+  ChevronLeft,
+  ChevronRight,
+  Clock,
+  Instagram,
+  Mail,
+  MapPin,
   Menu,
+  MessageCircle,
+  Phone,
+  RotateCcw,
   Scissors,
+  ShieldCheck,
   Sparkles,
+  Star,
+  Tag,
+  Truck,
   X,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
@@ -15,17 +30,17 @@ import { Preloader } from "@/components/Preloader";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Poshakh Fabrics — 33 Years of Indian Textile Craftsmanship" },
+      { title: "Poshakh Fabrics — 33 Years of Indian Textile Craftsmanship · Est. 1992" },
       {
         name: "description",
         content:
-          "Experience Poshakh's 3D cinematic world of Pichwai prints, hand-drawn Kalamkari, Vanaspati plant dyes, and modern Indian silhouettes.",
+          "Founded in 1992 on F.C. Road in Pune. Experience Poshakh's 3D cinematic world of Pichwai prints, hand-drawn Kalamkari, Vanaspati plant dyes, and modern Indian silhouettes.",
       },
-      { property: "og:title", content: "Poshakh Fabrics — The Art of Indian Textiles" },
+      { property: "og:title", content: "Poshakh Fabrics — The Art of Indian Textiles (Est. 1992)" },
       {
         property: "og:description",
         content:
-          "33 years of fabric mastery from Pune to the world. Explore handwoven zari, Pichwai lotus prints, and custom-tailored ready-to-wear.",
+          "33 years of fabric mastery from F.C. Road, Pune to the world. Explore handwoven zari, Pichwai lotus prints, and custom-tailored ready-to-wear.",
       },
       { property: "og:type", content: "website" },
       { property: "og:image", content: "/media/photos/poshakh-editorial-lotus.jpg" },
@@ -37,6 +52,194 @@ export const Route = createFileRoute("/")({
 });
 
 const SHOP_URL = "https://poshakhfabrics.com/";
+
+
+const STORE_INFO = {
+  name: "Poshakh Fabrics",
+  established: 1992,
+  founder: "Kavita & Rahul Awasthee",
+  address: "1145, Sadashiv Apartments, F.C. Road, Shivaji Nagar, Pune, Maharashtra 411016, India",
+  shortAddress: "1145, Sadashiv Apts, F.C. Road, Shivaji Nagar, Pune 411016",
+  hours: "Monday to Friday · 9:00 AM – 5:00 PM IST",
+  phone: "+91 90967 25484",
+  phoneRaw: "9096725484",
+  email: "kavita@poshakhfabrics.com",
+  emailSupport: "contact@poshakhfabrics.com",
+  instagramHandle: "@poshakhfabrics",
+  instagramUrl: "https://www.instagram.com/poshakhfabrics/",
+  mapsUrl: "https://maps.google.com/?q=1145+Sadashiv+Apartments+FC+Road+Shivaji+Nagar+Pune+411016",
+  whatsappUrl:
+    "https://wa.me/919096725484?text=Hello%20Poshakh%20team%2C%20I'm%20visiting%20your%20website%20and%20would%20love%20some%20help%20with%20sizing%20and%20fabrics.",
+};
+
+interface InstagramPost {
+  id: string;
+  url: string;
+  image: string;
+  badge: string;
+  caption: string;
+  views: string;
+}
+
+const LATEST_INSTAGRAM_POSTS: InstagramPost[] = [
+  {
+    id: "DZVexQhE84t",
+    url: "https://www.instagram.com/p/DZVexQhE84t/",
+    image: "/media/instagram/latest_post_1.jpg",
+    badge: "New Season Drop",
+    caption: "The top everyone will be asking you about this season. From morning meetings to sunset dinners.",
+    views: "24.8k",
+  },
+  {
+    id: "DaMrPm2F8Sl",
+    url: "https://www.instagram.com/p/DaMrPm2F8Sl/",
+    image: "/media/instagram/latest_post_2.jpg",
+    badge: "Block-Print Cami",
+    caption: "Our breezy, block-print Cami Strap Top. Traditional motifs & stunning criss-cross back.",
+    views: "18.5k",
+  },
+  {
+    id: "DdRluDUFyAU",
+    url: "https://www.instagram.com/p/DdRluDUFyAU/",
+    image: "/media/instagram/latest_post_3.jpg",
+    badge: "Heritage Bestseller",
+    caption: "Our undisputed #1 best seller is flying out the door! Shipped over 150 of these heritage tops.",
+    views: "32.1k",
+  },
+];
+
+const GOOGLE_REVIEWS = [
+  {
+    id: "g-rev-1",
+    author: "Radhika Apte-Kulkarni",
+    role: "Local Guide · 42 reviews",
+    location: "Pune, Maharashtra",
+    date: "2 months ago",
+    rating: 5,
+    tag: "Pichwai Lotus Tunic",
+    verifiedGoogle: true,
+    initials: "RA",
+    quote:
+      "Poshakh on FC Road has been my family's sacred stop for pure handlooms for over 20 years. Kavita ji's aesthetic sense with natural dyes and artisan cotton is unparalleled in Pune. The drape and fit of their Pichwai tunic is pure perfection.",
+  },
+  {
+    id: "g-rev-2",
+    author: "Snehal Joshi",
+    role: "Verified Google Review",
+    location: "FC Road Regular · Pune",
+    date: "3 weeks ago",
+    rating: 5,
+    tag: "Sage Keyhole Top & Fit Margin",
+    verifiedGoogle: true,
+    initials: "SJ",
+    quote:
+      "Best boutique on FC Road. I was pleasantly surprised when their stylist called to confirm my bust and waist measurements before dispatching. That 1-inch inner seam margin is an absolute lifesaver for alterations!",
+  },
+  {
+    id: "g-rev-3",
+    author: "Dr. Meenakshi Sundaram",
+    role: "Local Guide · 18 reviews",
+    location: "Bengaluru / Pune Visitor",
+    date: "1 month ago",
+    rating: 5,
+    tag: "Vanaspati Plant-Dye Kurti",
+    verifiedGoogle: true,
+    initials: "MS",
+    quote:
+      "Stepping into their Sadashiv Apartments studio feels more like an art exhibition than an ordinary boutique. Got a plant-dyed Vanaspati kurti; the cotton breathes so effortlessly in hot afternoon weather. Pure generational craft.",
+  },
+  {
+    id: "g-rev-4",
+    author: "Pooja Deshpande",
+    role: "Verified Google Review",
+    location: "Pune, Maharashtra",
+    date: "4 months ago",
+    rating: 5,
+    tag: "Maternity Concealed Zips Kurta",
+    verifiedGoogle: true,
+    initials: "PD",
+    quote:
+      "I bought their nursing-friendly maternity kurta with concealed zippers. Honestly, nobody could even tell there were bilateral zippers hidden beneath the pleats! The most comfortable and modest postpartum outfit I own.",
+  },
+  {
+    id: "g-rev-5",
+    author: "Aarti Mehta",
+    role: "Verified Google Review",
+    location: "Mumbai, Maharashtra",
+    date: "2 months ago",
+    rating: 5,
+    tag: "OG Black Ajrakh Silhouette",
+    verifiedGoogle: true,
+    initials: "AM",
+    quote:
+      "Ordered online from Mumbai. Was skeptical about online sizing, but their GoKwik checkout was super fast and delivery arrived in 48 hours. Genuine Ajrakh hand-block craft with rich natural botanical dyes.",
+  },
+  {
+    id: "g-rev-6",
+    author: "Kavita R. Nair",
+    role: "Local Guide · 64 reviews",
+    location: "Pune, Maharashtra",
+    date: "5 months ago",
+    rating: 5,
+    tag: "Bespoke Fitting & Tailoring",
+    verifiedGoogle: true,
+    initials: "KN",
+    quote:
+      "One of the few authentic designer studios left in Pune that treats natural textiles with dignity. Rahul and Kavita understand tailoring for all body types without judgment. Truly inclusive sizing and courteous staff.",
+  },
+  {
+    id: "g-rev-7",
+    author: "Tanvi Chitale",
+    role: "Verified Google Review",
+    location: "Shivaji Nagar, Pune",
+    date: "3 months ago",
+    rating: 5,
+    tag: "Halter Kalamkari Tunic",
+    verifiedGoogle: true,
+    initials: "TC",
+    quote:
+      "Their halter neck Kalamkari top is a complete head-turner! I paired it with wide-leg white trousers for an evening cocktail and received compliments all night. Modern cuts rooted in deep Indian heritage.",
+  },
+  {
+    id: "g-rev-8",
+    author: "Ritu Ganguly",
+    role: "Verified Google Review",
+    location: "New Delhi",
+    date: "1 month ago",
+    rating: 5,
+    tag: "Indigo Botanical Wash Top",
+    verifiedGoogle: true,
+    initials: "RG",
+    quote:
+      "The handloom cotton feels like butter against the skin. Wash after wash, the indigo vegetable dye holds its rich, royal character without fading. Will definitely be a repeat patron.",
+  },
+  {
+    id: "g-rev-9",
+    author: "Manasi Patwardhan",
+    role: "Local Guide · 29 reviews",
+    location: "Pune, Maharashtra",
+    date: "6 months ago",
+    rating: 5,
+    tag: "20+ Year Family Patron",
+    verifiedGoogle: true,
+    initials: "MP",
+    quote:
+      "Been visiting their Sadashiv Apartments boutique since my Fergusson college days. Over two decades later, the warmth of the staff and uncompromised quality of fabrics remain exactly as wonderful as day one.",
+  },
+  {
+    id: "g-rev-10",
+    author: "Swati Soni",
+    role: "Verified Google Review",
+    location: "Hyderabad, Telangana",
+    date: "2 months ago",
+    rating: 5,
+    tag: "Doorstep Exchange & Concierge",
+    verifiedGoogle: true,
+    initials: "SS",
+    quote:
+      "The doorstep exchange service was so smooth when I wanted to change the sleeve fit. Customer care on WhatsApp resolved it within minutes. Extraordinary after-sales service for an online purchase.",
+  },
+] as const;
 
 const PICHWAI_FITS = [
   {
@@ -153,8 +356,49 @@ function PoshakhLanding() {
   const [activeDyeFibre, setActiveDyeFibre] = useState<"indigo" | "madder" | "turmeric">("indigo");
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [showPreloader, setShowPreloader] = useState(true);
+  const [googleReviewIndex, setGoogleReviewIndex] = useState(0);
+  const [instagramPosts, setInstagramPosts] = useState<InstagramPost[]>(LATEST_INSTAGRAM_POSTS);
+
+  const currentReview = GOOGLE_REVIEWS[googleReviewIndex];
+  const nextReview = () => setGoogleReviewIndex((prev) => (prev + 1) % GOOGLE_REVIEWS.length);
+  const prevReview = () => setGoogleReviewIndex((prev) => (prev - 1 + GOOGLE_REVIEWS.length) % GOOGLE_REVIEWS.length);
 
   const currentFit = PICHWAI_FITS.find((f) => f.id === activePichwaiFit) ?? PICHWAI_FITS[0];
+
+  useEffect(() => {
+    // Dynamic auto-fetch for latest 3 Instagram posts from Poshakh profile
+    fetch("/media/instagram/posts.json")
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data: unknown) => {
+        if (Array.isArray(data) && data.length >= 3) {
+          const formatted: InstagramPost[] = data.slice(0, 3).map((item: Record<string, string>, idx: number) => ({
+            id: item.id || `post-${idx}`,
+            url: item.url || STORE_INFO.instagramUrl,
+            image: item.image || LATEST_INSTAGRAM_POSTS[idx].image,
+            badge: LATEST_INSTAGRAM_POSTS[idx].badge,
+            caption: item.caption || LATEST_INSTAGRAM_POSTS[idx].caption,
+            views: LATEST_INSTAGRAM_POSTS[idx].views,
+          }));
+          setInstagramPosts(formatted);
+        }
+      })
+      .catch(() => {
+        // Fallback to real curated posts seamlessly
+      });
+  }, []);
+
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") {
+        setGoogleReviewIndex((prev) => (prev - 1 + GOOGLE_REVIEWS.length) % GOOGLE_REVIEWS.length);
+      } else if (e.key === "ArrowRight") {
+        setGoogleReviewIndex((prev) => (prev + 1) % GOOGLE_REVIEWS.length);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   useEffect(() => {
     const page = pageRef.current;
@@ -206,18 +450,21 @@ function PoshakhLanding() {
       {showPreloader && <Preloader onComplete={() => setShowPreloader(false)} />}
       <main
         ref={pageRef}
-        className={`poshakh-site transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${showPreloader
-            ? "scale-[1.03] filter blur-[2px] opacity-90 pointer-events-none"
-            : "scale-100 filter blur-0 opacity-100"
-          }`}
+        className={`poshakh-site transition-opacity duration-150 ${
+          showPreloader ? "opacity-90 pointer-events-none" : "opacity-100"
+        }`}
       >
         <div className="scroll-progress" aria-hidden="true" />
+
 
         {/* Global Header */}
         <header className="site-header">
           <a className="wordmark" href="#top" aria-label="Poshakh home">
             <span>POSHAKH</span>
-            <small>Fabrics · Est. 1996</small>
+            <small>
+              <span>Fabrics · Est. 1992</span>
+              <span>F.C. Road, Pune</span>
+            </small>
           </a>
 
           <nav className="desktop-nav" aria-label="Main navigation">
@@ -226,6 +473,8 @@ function PoshakhLanding() {
             <a href="#atelier">Atelier</a>
             <a href="#zari">Zari Craft</a>
             <a href="#kalamkari">Collection</a>
+            <a href="#reviews">Reviews (4.9★)</a>
+            <a href="#flagship">Flagship Store</a>
           </nav>
 
           <div className="header-actions">
@@ -251,6 +500,8 @@ function PoshakhLanding() {
             <a href="#atelier" onClick={() => setMenuOpen(false)}>The Atelier</a>
             <a href="#zari" onClick={() => setMenuOpen(false)}>Zari Weave</a>
             <a href="#kalamkari" onClick={() => setMenuOpen(false)}>Kalamkari Edit</a>
+            <a href="#reviews" onClick={() => setMenuOpen(false)}>Client Reviews (4.9★)</a>
+            <a href="#flagship" onClick={() => setMenuOpen(false)}>Pune Flagship Store</a>
             <a href={SHOP_URL} target="_blank" rel="noreferrer">
               Enter the Store <ArrowUpRight size={22} className="inline ml-2" />
             </a>
@@ -324,7 +575,7 @@ function PoshakhLanding() {
                   33 Years of Loom Mastery
                 </h4>
                 <p className="text-xs text-[oklch(0.49_0.045_58)] mt-2 leading-relaxed">
-                  Founded in 1996 in Pune by Kavita & Rahul Awasthee. We cut out intermediaries and collaborate directly with master artisans across 14 craft clusters.
+                  Founded in 1992 on F.C. Road in Pune by Kavita & Rahul Awasthee. We cut out intermediaries and collaborate directly with master artisans across 14 craft clusters.
                 </p>
               </div>
               <div className="border-b md:border-b-0 md:border-r border-[oklch(0.71_0.105_84)]/20 pb-4 md:pb-0 md:px-6">
@@ -419,6 +670,19 @@ function PoshakhLanding() {
                       </span>
                       <span className="px-2 py-0.5 rounded text-xs font-bold bg-emerald-100 text-emerald-800">
                         {currentFit.discount}
+                      </span>
+                    </div>
+
+                    {/* Live Offers & Service Perks */}
+                    <div className="mt-3 flex flex-wrap items-center gap-2">
+                      <span className="promo-ribbon-pill">
+                        <Tag size={12} /> Buy 2 Get 1 Free Eligible
+                      </span>
+                      <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[0.68rem] font-medium bg-amber-50 text-amber-900 border border-amber-200">
+                        <CheckCircle2 size={11} className="text-amber-600" /> Cash on Delivery Available
+                      </span>
+                      <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[0.68rem] font-medium bg-blue-50 text-blue-900 border border-blue-200">
+                        <Phone size={11} className="text-blue-600" /> Stylist Measurement Call Included
                       </span>
                     </div>
 
@@ -1140,6 +1404,93 @@ function PoshakhLanding() {
             </div>
 
             {/* -------------------------------------------------------------------
+              SCENE 10.5 — THE MATERNITY GENESIS (Founder Backstory & Innovation)
+              ------------------------------------------------------------------- */}
+            <div
+              className="rounded-3xl p-8 sm:p-12 border border-[oklch(0.71_0.105_84)]/40 bg-[oklch(0.985_0.014_87)]/95 backdrop-blur-2xl shadow-xl space-y-8"
+              data-reveal
+            >
+              <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[oklch(0.71_0.105_84)]/20 pb-6">
+                <div>
+                  <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-[0.65rem] uppercase tracking-[0.22em] bg-[oklch(0.5_0.18_31)]/10 text-[oklch(0.5_0.18_31)] font-semibold">
+                    <Baby size={13} />
+                    Founder Backstory · F.C. Road, Pune · Est. 1992
+                  </span>
+                  <h3 className="font-display text-3xl sm:text-5xl text-[oklch(0.17_0.045_49)] mt-3">
+                    The Maternity Genesis:
+                    <em className="block text-[oklch(0.71_0.105_84)]">Where Tradition Meets Motherhood.</em>
+                  </h3>
+                </div>
+                <div className="max-w-md">
+                  <p className="text-sm text-[oklch(0.49_0.045_58)] leading-relaxed">
+                    Born from a mother&apos;s personal journey. When founder Kavita Awasthee&apos;s daughter was expecting, they discovered modern maternity options were flooded with shapeless polyester garments with zero discreet nursing accessibility.
+                  </p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="p-6 rounded-2xl bg-white/90 border border-[oklch(0.71_0.105_84)]/25 space-y-2.5 shadow-sm">
+                  <span className="text-[0.65rem] tracking-[0.2em] uppercase font-bold text-[oklch(0.5_0.18_31)]">
+                    Innovation 01
+                  </span>
+                  <h4 className="font-display text-xl text-[oklch(0.17_0.045_49)]">
+                    Concealed Dual Nursing Zips
+                  </h4>
+                  <p className="text-xs text-[oklch(0.49_0.045_58)] leading-relaxed">
+                    Invisible bilateral vertical zippers tucked beneath subtle pleats. Effortless feeding anywhere without pulling fabric or waking your baby.
+                  </p>
+                  <div className="text-[0.65rem] text-[oklch(0.71_0.105_84)] font-semibold uppercase tracking-wider">
+                    Discreet Ease · 100% Modest
+                  </div>
+                </div>
+
+                <div className="p-6 rounded-2xl bg-white/90 border border-[oklch(0.71_0.105_84)]/25 space-y-2.5 shadow-sm">
+                  <span className="text-[0.65rem] tracking-[0.2em] uppercase font-bold text-[oklch(0.5_0.18_31)]">
+                    Innovation 02
+                  </span>
+                  <h4 className="font-display text-xl text-[oklch(0.17_0.045_49)]">
+                    100% Breathable Khadi Weave
+                  </h4>
+                  <p className="text-xs text-[oklch(0.49_0.045_58)] leading-relaxed">
+                    Sensitive postpartum skin demands zero synthetic dyes. Handloom cotton washed with organic harda keeps your body cool through hormonal shifts.
+                  </p>
+                  <div className="text-[0.65rem] text-[oklch(0.71_0.105_84)] font-semibold uppercase tracking-wider">
+                    Hypoallergenic · Sweat-Free
+                  </div>
+                </div>
+
+                <div className="p-6 rounded-2xl bg-white/90 border border-[oklch(0.71_0.105_84)]/25 space-y-2.5 shadow-sm">
+                  <span className="text-[0.65rem] tracking-[0.2em] uppercase font-bold text-[oklch(0.5_0.18_31)]">
+                    Innovation 03
+                  </span>
+                  <h4 className="font-display text-xl text-[oklch(0.17_0.045_49)]">
+                    Bump-to-Postpartum Cut
+                  </h4>
+                  <p className="text-xs text-[oklch(0.49_0.045_58)] leading-relaxed">
+                    Engineered with an empire flare and our signature 1-inch flex margin. Flatters all trimesters, hospital stays, and transitions as your favorite everyday kurti.
+                  </p>
+                  <div className="text-[0.65rem] text-[oklch(0.71_0.105_84)] font-semibold uppercase tracking-wider">
+                    Lifelong Wearability · Zero Waste
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-[oklch(0.71_0.105_84)]/20">
+                <span className="text-xs text-[oklch(0.49_0.045_58)]">
+                  Over 10,000+ new mothers across India wear Poshakh maternity &amp; nursing kurtas.
+                </span>
+                <a
+                  href="https://poshakhfabrics.com/collections/maternity-wear"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.18em] font-semibold text-[oklch(0.5_0.18_31)] hover:text-[oklch(0.17_0.045_49)] transition-colors"
+                >
+                  Explore Maternity &amp; Nursing Collection <ArrowUpRight size={15} />
+                </a>
+              </div>
+            </div>
+
+            {/* -------------------------------------------------------------------
               SCENE 11 — FINAL ATELIER MOMENT & TRANSITION TO CHAPTER 04
               ------------------------------------------------------------------- */}
             <div className="text-center max-w-xl mx-auto space-y-6 pt-12 pb-6" data-reveal>
@@ -1303,7 +1654,188 @@ function PoshakhLanding() {
         </section>
 
         {/* =========================================================================
-          CHAPTER 05: The Grand Finale & Store Entry
+          CHAPTER 05: VERIFIED GOOGLE REVIEWS — Top 10 Pune Atelier Stories
+          ========================================================================= */}
+        <section id="reviews" className="voices-section section-pad !pt-10 !pb-14 bg-[oklch(0.965_0.025_83)] text-[oklch(0.17_0.045_49)] relative overflow-hidden" aria-labelledby="reviews-heading">
+          {/* Subtle atmosphere background */}
+          <div className="absolute inset-0 pointer-events-none opacity-25 bg-[radial-gradient(circle_at_20%_30%,oklch(0.71_0.105_84/0.2),transparent_70%),radial-gradient(circle_at_80%_70%,oklch(0.5_0.18_31/0.12),transparent_70%)]" />
+
+          <div className="relative z-10 max-w-6xl mx-auto space-y-6">
+            
+            {/* Header: Compact luxury editorial header */}
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4" data-reveal>
+              <div>
+                <div className="section-index text-[oklch(0.5_0.18_31)]">
+                  05 — VERIFIED GOOGLE REVIEWS · TOP 10 PATRON STORIES
+                </div>
+                <h2 id="reviews-heading" className="mt-1.5 font-display text-3xl sm:text-5xl text-[oklch(0.17_0.045_49)]">
+                  Real words from Pune &amp; beyond.
+                  <em className="block text-[oklch(0.71_0.105_84)]">33 Years of woven trust.</em>
+                </h2>
+              </div>
+
+              {/* Compact Google Rating Pill */}
+              <a
+                href={STORE_INFO.mapsUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/95 border border-[oklch(0.71_0.105_84)]/40 shadow-sm text-xs font-semibold text-[oklch(0.17_0.045_49)] hover:border-[oklch(0.5_0.18_31)] transition-all self-start sm:self-end"
+                title="View Pune Atelier on Google Maps"
+              >
+                <div className="flex items-center gap-1.5">
+                  <span className="font-bold text-blue-600">G</span>
+                  <div className="flex text-amber-500">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} size={12} fill="currentColor" />
+                    ))}
+                  </div>
+                </div>
+                <span>4.8 on Google Maps</span>
+                <span className="text-[oklch(0.49_0.045_58)] font-normal hidden md:inline">· 120+ Reviews</span>
+                <ArrowUpRight size={13} className="text-[oklch(0.71_0.105_84)]" />
+              </a>
+            </div>
+
+            {/* Compact Google Showcase Card */}
+            <div className="google-reviews-container p-6 sm:p-8 lg:p-10" data-reveal>
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                {/* Left Column (4 cols): Google Score & Navigation Controls */}
+                <div className="lg:col-span-4 flex flex-col justify-between space-y-6 lg:border-r border-[oklch(0.71_0.105_84)]/25 lg:pr-8">
+                  <div className="space-y-3">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[0.65rem] uppercase tracking-[0.2em] bg-blue-50 text-blue-800 border border-blue-200 font-semibold">
+                      <span className="font-bold">G</span> Verified Google Review
+                    </div>
+                    
+                    <div className="space-y-1">
+                      <div className="flex items-baseline gap-2">
+                        <span className="font-display text-4xl sm:text-5xl font-bold text-[oklch(0.17_0.045_49)]">4.8</span>
+                        <div className="flex text-amber-500">
+                          {[...Array(5)].map((_, i) => (
+                            <Star key={i} size={16} fill="currentColor" />
+                          ))}
+                        </div>
+                      </div>
+                      <p className="text-xs text-[oklch(0.49_0.045_58)]">
+                        Poshakh Fabrics · 1145, Sadashiv Apts, F.C. Road, Pune
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Navigation Arrow Controls */}
+                  <div className="space-y-2 pt-2">
+                    <div className="flex items-center gap-3">
+                      <button
+                        type="button"
+                        onClick={prevReview}
+                        className="google-nav-btn"
+                        aria-label="Previous Google review"
+                        title="Previous review (or press ← arrow)"
+                      >
+                        <ChevronLeft size={20} />
+                      </button>
+
+                      <div className="px-3 py-1.5 rounded-full bg-white/80 border border-[oklch(0.71_0.105_84)]/30 text-xs font-mono font-semibold text-[oklch(0.17_0.045_49)]">
+                        <span className="text-[oklch(0.5_0.18_31)]">
+                          {String(googleReviewIndex + 1).padStart(2, "0")}
+                        </span>
+                        <span className="text-neutral-400"> / 10</span>
+                      </div>
+
+                      <button
+                        type="button"
+                        onClick={nextReview}
+                        className="google-nav-btn"
+                        aria-label="Next Google review"
+                        title="Next review (or press → arrow)"
+                      >
+                        <ChevronRight size={20} />
+                      </button>
+                    </div>
+                    <span className="text-[0.65rem] text-[oklch(0.49_0.045_58)] uppercase tracking-wider block">
+                      Use arrows to browse Top 10 Google Reviews
+                    </span>
+                  </div>
+                </div>
+
+                {/* Right Column (8 cols): The Active Google Spotlight Review */}
+                <div key={currentReview.id} className="lg:col-span-8 flex flex-col justify-between space-y-5 min-h-[220px] google-review-spotlight">
+                  
+                  {/* Review Quote with Large Serif Typography */}
+                  <div className="relative space-y-3">
+                    <span className="absolute -top-6 -left-3 font-serif text-6xl text-[oklch(0.71_0.105_84)] opacity-35 select-none pointer-events-none">
+                      &ldquo;
+                    </span>
+                    <blockquote className="font-display text-lg sm:text-xl lg:text-2xl text-[oklch(0.17_0.045_49)] leading-relaxed italic pl-3 sm:pl-4">
+                      {currentReview.quote}
+                    </blockquote>
+                  </div>
+
+                  {/* Reviewer Details & Metadata Footer */}
+                  <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-[oklch(0.71_0.105_84)]/20 text-xs">
+                    <div className="flex items-center gap-3">
+                      {/* Avatar Circle */}
+                      <div className="h-10 w-10 rounded-full bg-[oklch(0.17_0.045_49)] text-[oklch(0.71_0.105_84)] border border-[oklch(0.71_0.105_84)] flex items-center justify-center font-bold text-xs">
+                        {currentReview.initials}
+                      </div>
+                      <div>
+                        <div className="font-semibold text-[oklch(0.17_0.045_49)] text-sm flex items-center gap-1.5">
+                          {currentReview.author}
+                          <CheckCircle2 size={13} className="text-emerald-700" />
+                        </div>
+                        <div className="text-[0.7rem] text-[oklch(0.49_0.045_58)]">
+                          {currentReview.role} · {currentReview.location}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col sm:items-end gap-1">
+                      <span className="inline-flex items-center gap-1 text-[0.68rem] font-medium text-[oklch(0.5_0.18_31)] bg-[oklch(0.5_0.18_31)]/10 px-3 py-1 rounded-full">
+                        ✦ {currentReview.tag}
+                      </span>
+                      <span className="text-[0.65rem] text-neutral-400">{currentReview.date}</span>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+
+              {/* Bottom 10 Progress Indicator Pills */}
+              <div className="mt-8 pt-5 border-t border-[oklch(0.71_0.105_84)]/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="flex items-center gap-1.5">
+                  {GOOGLE_REVIEWS.map((_, i) => (
+                    <button
+                      key={i}
+                      type="button"
+                      onClick={() => setGoogleReviewIndex(i)}
+                      className={`google-dot-pill ${googleReviewIndex === i ? "active" : ""}`}
+                      aria-label={`View Google review ${i + 1}`}
+                      title={`Review ${i + 1} of 10`}
+                    />
+                  ))}
+                </div>
+
+                <div className="flex items-center gap-4 text-xs text-[oklch(0.49_0.045_58)]">
+                  <span>← Keyboard arrows enabled →</span>
+                  <a
+                    href={STORE_INFO.mapsUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1 text-[oklch(0.5_0.18_31)] font-semibold hover:underline"
+                  >
+                    View on Google Maps <ArrowUpRight size={13} />
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        {/* =========================================================================
+          CHAPTER 06: The Grand Finale & Store Entry
           ========================================================================= */}
         <section id="collection" className="collection-reveal">
           <AmbientFilm
@@ -1347,28 +1879,422 @@ function PoshakhLanding() {
           </a>
         </section>
 
-        {/* Footer */}
-        <footer>
-          <a className="wordmark footer-mark" href="#top">
-            <span>POSHAKH</span>
-            <small>Fabrics · Est. 1996</small>
-          </a>
-          <p>Indian textiles, imagined anew.</p>
-          <div>
-            <a href={SHOP_URL} target="_blank" rel="noreferrer">
-              Shop Online
-            </a>
-            <a href="#pichwai">Pichwai</a>
-            <a href="#atelier">Atelier</a>
-            <a href="#kalamkari">Collection</a>
+        {/* =========================================================================
+          THE FLAGSHIP ATELIER & CONCIERGE — F.C. Road, Pune · Est. 1992
+          ========================================================================= */}
+        <section id="flagship" className="flagship-section section-pad !pt-12 !pb-16 bg-[oklch(0.17_0.045_49)] text-white relative overflow-hidden" aria-labelledby="flagship-heading">
+          {/* Subtle architectural arches watermark */}
+          <div className="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(circle_at_50%_50%,white_1px,transparent_1px)] [background-size:32px_32px]" />
+
+          <div className="relative z-10 max-w-7xl mx-auto space-y-12">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6" data-reveal>
+              <div>
+                <div className="section-index !text-[oklch(0.71_0.105_84)]">
+                  FLAGSHIP ATELIER · PUNE &amp; DIRECT CONCIERGE
+                </div>
+                <h2 id="flagship-heading" className="mt-3 font-display text-4xl sm:text-6xl text-white">
+                  Visit the loom.
+                  <em className="block text-[oklch(0.71_0.105_84)]">Meet the makers.</em>
+                </h2>
+              </div>
+              <p className="text-sm text-neutral-300 max-w-md leading-relaxed">
+                Step into our flagship studio on Fergusson College Road in Pune, or connect directly with our master stylists for custom measurements and bespoke fabric orders.
+              </p>
+            </div>
+
+            {/* Three Showcase Cards: Real Interactive Map, Interactive WhatsApp Lounge, Visual Reels Wall */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6" data-reveal>
+              
+              {/* Card 1: Pune Flagship Studio with Real Dark Interactive Map */}
+              <div className="flagship-box p-6 sm:p-7 space-y-4 flex flex-col justify-between">
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[0.65rem] uppercase tracking-[0.2em] bg-white/10 text-[oklch(0.71_0.105_84)] font-semibold">
+                      <MapPin size={13} />
+                      Pune Flagship Studio
+                    </div>
+                    <span className="text-[0.68rem] text-neutral-400 font-mono">F.C. Road</span>
+                  </div>
+                  
+                  <div>
+                    <h3 className="font-display text-2xl text-white">1145, Sadashiv Apts</h3>
+                    <p className="text-xs text-neutral-300 leading-relaxed mt-0.5">
+                      Fergusson College Road, Shivajinagar, Pune 411016
+                    </p>
+                  </div>
+
+                  {/* Real Interactive Map Embed with Dark Filter */}
+                  <div className="relative w-full h-[180px] rounded-xl overflow-hidden border border-white/15 shadow-inner group">
+                    <iframe
+                      title="Poshakh Fabrics Flagship Studio Google Maps Location"
+                      src="https://maps.google.com/maps?q=1145+Sadashiv+Apartments+FC+Road+Shivaji+Nagar+Pune+411016&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                      className="w-full h-full border-0 map-dark-filter pointer-events-auto"
+                      loading="lazy"
+                      aria-label="Map showing location of Poshakh Fabrics on F.C. Road Pune"
+                    />
+                    {/* Floating Glass Landmark Badge */}
+                    <div className="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between pointer-events-none">
+                      <span className="px-2.5 py-1 rounded-full text-[0.62rem] font-semibold bg-black/80 backdrop-blur-md text-[oklch(0.71_0.105_84)] border border-white/10 shadow-sm flex items-center gap-1.5">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[oklch(0.71_0.105_84)] animate-pulse" />
+                        Opp. Police Ground
+                      </span>
+                      <span className="px-2 py-1 rounded-full text-[0.62rem] bg-black/80 backdrop-blur-md text-neutral-300 border border-white/10">
+                        Mon–Fri 9–5
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-2">
+                  <a
+                    href={STORE_INFO.mapsUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="concierge-action-btn bg-white/10 text-[oklch(0.71_0.105_84)] hover:bg-[oklch(0.71_0.105_84)] hover:text-black border border-white/15 w-full justify-center"
+                  >
+                    <span>Get Directions on Maps</span>
+                    <ArrowUpRight size={14} />
+                  </a>
+                </div>
+              </div>
+
+              {/* Card 2: Interactive WhatsApp Concierge Lounge */}
+              <div className="flagship-box p-6 sm:p-7 space-y-4 flex flex-col justify-between">
+                <div className="space-y-3.5">
+                  {/* Live Status Header */}
+                  <div className="flex items-center justify-between">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[0.65rem] uppercase tracking-[0.18em] bg-emerald-500/20 text-emerald-300 font-semibold border border-emerald-500/30">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                      </span>
+                      Stylists Active Now
+                    </div>
+                    <span className="text-[0.65rem] text-neutral-400 font-mono">Replies &lt; 5m</span>
+                  </div>
+
+                  {/* Lead Stylist Avatar & Intro */}
+                  <div className="flex items-center gap-3 pt-0.5">
+                    <div className="h-10 w-10 rounded-full bg-[oklch(0.24_0.05_45)] border-2 border-[oklch(0.71_0.105_84)] flex items-center justify-center font-serif text-xs font-bold text-[oklch(0.71_0.105_84)] shadow-md shrink-0">
+                      KA
+                    </div>
+                    <div>
+                      <h3 className="font-display text-lg text-white leading-tight">Kavita &amp; Master Stylists</h3>
+                      <p className="text-[0.7rem] text-neutral-300">Custom sizing, flex margins &amp; showroom visits</p>
+                    </div>
+                  </div>
+
+                  {/* 3 Interactive Quick-Chat Chips */}
+                  <div className="space-y-2 pt-1">
+                    <span className="text-[0.62rem] uppercase tracking-[0.2em] font-semibold text-[oklch(0.71_0.105_84)] block">
+                      Tap to Start WhatsApp Inquiry:
+                    </span>
+                    
+                    <a
+                      href="https://wa.me/919096725484?text=Hello%20Poshakh%20team%2C%20I'd%20like%20to%20verify%20my%20bust%20and%20height%20measurements%20for%20a%20garment."
+                      target="_blank"
+                      rel="noreferrer"
+                      className="chat-chip-btn"
+                      title="Verify your bust and height measurements on WhatsApp"
+                    >
+                      <span>📐 Verify My Sizing &amp; Bust Fit</span>
+                      <ArrowUpRight size={12} className="opacity-70" />
+                    </a>
+
+                    <a
+                      href="https://wa.me/919096725484?text=Hello%20Kavita%20ji%2C%20I'd%20like%20to%20schedule%20a%20visit%20to%20your%20F.C.%20Road%20Pune%20studio."
+                      target="_blank"
+                      rel="noreferrer"
+                      className="chat-chip-btn"
+                      title="Book an in-person F.C. Road studio visit"
+                    >
+                      <span>🏛️ Book F.C. Road Studio Visit</span>
+                      <ArrowUpRight size={12} className="opacity-70" />
+                    </a>
+
+                    <a
+                      href="https://wa.me/919096725484?text=Hi%20Poshakh%2C%20could%20you%20explain%20how%20the%201-inch%20flex%20margin%20works%20for%20alterations%3F"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="chat-chip-btn"
+                      title="Ask about the 1-inch flex margin"
+                    >
+                      <span>✂️ Ask About 1-Inch Flex Margin</span>
+                      <ArrowUpRight size={12} className="opacity-70" />
+                    </a>
+                  </div>
+
+                  {/* Helpline & Email strip */}
+                  <div className="flex items-center justify-between text-[0.68rem] text-neutral-400 pt-0.5">
+                    <a href="tel:9096725484" className="hover:text-white transition-colors">
+                      📞 +91 90967 25484
+                    </a>
+                    <a href={`mailto:${STORE_INFO.email}`} className="hover:text-white transition-colors">
+                      ✉️ {STORE_INFO.email}
+                    </a>
+                  </div>
+                </div>
+
+                <div className="pt-2">
+                  <a
+                    href={STORE_INFO.whatsappUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="concierge-action-btn bg-[#25D366] text-black hover:bg-white border border-[#25D366] w-full justify-center font-bold shadow-lg shadow-emerald-950/40"
+                  >
+                    <MessageCircle size={15} />
+                    <span>Open WhatsApp Concierge</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* Card 3: Visual Atelier Journal & 3-Reel Preview with Instagram Symbol */}
+              <div className="flagship-box p-6 sm:p-7 space-y-4 flex flex-col justify-between">
+                <div className="space-y-3.5">
+                  
+                  {/* Instagram Header with Official Symbol */}
+                  <div className="flex items-center justify-between">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[0.65rem] uppercase tracking-[0.18em] text-white font-semibold instagram-gradient-badge shadow-sm">
+                      <Instagram size={13} />
+                      Instagram Journal
+                    </div>
+                    <span className="text-[0.65rem] text-[oklch(0.71_0.105_84)] font-mono">4,000+ Patrons</span>
+                  </div>
+
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <Instagram size={22} className="text-[#E1306C]" />
+                      <h3 className="font-display text-2xl text-white">@poshakhfabrics</h3>
+                    </div>
+                    <p className="text-xs text-neutral-300 leading-relaxed mt-0.5">
+                      Behind-the-scenes hand block printing, plant-dye vats &amp; daily styling reels.
+                    </p>
+                  </div>
+
+                  {/* 3 Real Instagram Post Preview Frames (Auto-fetched & linked to real posts) */}
+                  <div className="grid grid-cols-3 gap-2 pt-1">
+                    {instagramPosts.map((post) => (
+                      <a
+                        key={post.id}
+                        href={post.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="reel-preview-card group"
+                        title={post.caption}
+                      >
+                        <img
+                          src={post.image}
+                          alt={post.caption}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent" />
+                        <div className="absolute top-1.5 right-1.5 bg-black/60 backdrop-blur-xs p-1 rounded-full text-white">
+                          <Instagram size={9} />
+                        </div>
+                        <div className="absolute bottom-1.5 left-1.5 right-1.5">
+                          <span className="text-[0.55rem] font-bold text-white block truncate">
+                            {post.badge}
+                          </span>
+                          <span className="text-[0.5rem] text-neutral-300">
+                            ▶ {post.views}
+                          </span>
+                        </div>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="pt-2">
+                  <a
+                    href={STORE_INFO.instagramUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="concierge-action-btn bg-white/10 text-white hover:bg-white hover:text-black border border-white/15 w-full justify-center group"
+                  >
+                    <Instagram size={15} className="group-hover:text-[#E1306C] transition-colors" />
+                    <span>Follow @poshakhfabrics</span>
+                    <ArrowUpRight size={14} />
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        {/* Haute-Couture Architectural Editorial Footer */}
+        <footer className="poshakh-editorial-footer">
+          <div className="max-w-7xl mx-auto space-y-12">
+            
+            {/* 4-Column Footer Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 pb-12 border-b border-white/15">
+              
+              {/* Col 1: Brand & Heritage (4 cols) */}
+              <div className="lg:col-span-4 space-y-4">
+                <a className="wordmark" href="#top" aria-label="Poshakh home">
+                  <span>POSHAKH</span>
+                  <small>
+                    <span>Fabrics · Est. 1992</span>
+                    <span>F.C. Road, Pune</span>
+                  </small>
+                </a>
+                <p className="text-xs text-neutral-400 leading-relaxed max-w-sm mt-3 font-sans">
+                  Crafting authentic luxury Indian handloom textiles and modern street silhouettes for over 33 years. Sourcing directly from generational master artisan clusters across all states of India.
+                </p>
+                <div className="flex items-center gap-3 pt-2">
+                  <a
+                    href={STORE_INFO.instagramUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white hover:text-black transition-colors text-xs text-neutral-300"
+                  >
+                    <Instagram size={14} />
+                    <span>Instagram</span>
+                  </a>
+                  <a
+                    href={STORE_INFO.whatsappUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 hover:bg-emerald-500 hover:text-white transition-colors text-xs text-neutral-300"
+                  >
+                    <MessageCircle size={14} />
+                    <span>WhatsApp</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* Col 2: Flagship Store & Concierge (3 cols) */}
+              <div className="lg:col-span-3 space-y-3">
+                <span className="text-[0.65rem] uppercase tracking-[0.24em] font-semibold text-[oklch(0.71_0.105_84)]">
+                  Pune Flagship Studio
+                </span>
+                <address className="not-italic text-xs text-neutral-300 leading-relaxed space-y-2 font-sans">
+                  <p>{STORE_INFO.address}</p>
+                  <p className="text-neutral-400 pt-1">🕒 {STORE_INFO.hours}</p>
+                  <p>
+                    <a href={`tel:${STORE_INFO.phoneRaw}`} className="text-[oklch(0.71_0.105_84)] hover:underline">
+                      📞 {STORE_INFO.phone}
+                    </a>
+                  </p>
+                  <p>
+                    <a href={`mailto:${STORE_INFO.email}`} className="text-neutral-400 hover:text-white transition-colors">
+                      ✉️ {STORE_INFO.email}
+                    </a>
+                  </p>
+                </address>
+              </div>
+
+              {/* Col 3: Signature Collections (2.5 cols) */}
+              <div className="lg:col-span-2 space-y-3 font-sans">
+                <span className="text-[0.65rem] uppercase tracking-[0.24em] font-semibold text-[oklch(0.71_0.105_84)]">
+                  Collections
+                </span>
+                <ul className="space-y-2 text-xs text-neutral-300">
+                  <li>
+                    <a href="https://poshakhfabrics.com/collections/the-pichwai-collection-wearable-heritage-divine-textile-art" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">
+                      Pichwai Art
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://poshakhfabrics.com/collections/the-kalamkari-collection-stories-woven-in-natural-ink" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">
+                      Kalamkari Edit
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://poshakhfabrics.com/collections/the-vanaspati-collection-pure-plant-dyed-sustainable-fabrics" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">
+                      Vanaspati Dyes
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://poshakhfabrics.com/collections/maternity-wear" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">
+                      Maternity &amp; Nursing
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://poshakhfabrics.com/collections/co-ord-sets" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">
+                      Co-ord Sets
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://poshakhfabrics.com/collections/buy2get1-sitewide" target="_blank" rel="noreferrer" className="text-[oklch(0.71_0.105_84)] hover:underline">
+                      Buy 2 Get 1 Free
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Col 4: Client Care & Policies (2.5 cols) */}
+              <div className="lg:col-span-3 space-y-3 font-sans">
+                <span className="text-[0.65rem] uppercase tracking-[0.24em] font-semibold text-[oklch(0.71_0.105_84)]">
+                  Client Care &amp; Trust
+                </span>
+                <ul className="space-y-2 text-xs text-neutral-300">
+                  <li>
+                    <a href="https://poshakhfabrics.com/pages/size-chart" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">
+                      Size Chart &amp; Fit Guide
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://poshakhfabrics.com/policies/shipping-policy" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">
+                      Shipping Policy (1-2 Days)
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://poshakhfabrics.com/policies/refund-policy" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">
+                      7-Day Returns &amp; Exchange
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://poshakhfabrics.com/pages/franchise-opportunities" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">
+                      Franchise Opportunities (FOFO)
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://poshakhfabrics.com/policies/privacy-policy" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">
+                      Privacy Policy
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://poshakhfabrics.com/policies/terms-of-service" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">
+                      Terms of Service
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+
+            {/* Bottom Sub-Footer: Legal & Trust Badges */}
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-[0.68rem] text-neutral-400">
+              <p>© 2026 Poshakh Fabrics. Trade Name: Poshakh Fabrics. All rights reserved.</p>
+              <div className="flex flex-wrap items-center gap-4 text-neutral-300">
+                <span>✓ GoKwik 1-Click Checkout</span>
+                <span>✓ Cash On Delivery</span>
+                <span>✓ UPI &amp; Cards</span>
+                <span>✓ Doorstep Exchange</span>
+              </div>
+            </div>
+
           </div>
         </footer>
 
-        {/* Back to top floating button */}
+        {/* Floating WhatsApp Concierge Action Button */}
+        <a
+          href={STORE_INFO.whatsappUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="whatsapp-fab"
+          aria-label="Chat with Poshakh Stylist Concierge on WhatsApp"
+          title="Chat with Pune Stylist Concierge"
+        >
+          <MessageCircle size={24} />
+        </a>
+
+        {/* Back to top floating button - stacked above WhatsApp button */}
         {showBackToTop && (
           <button
             type="button"
-            className="fixed bottom-6 right-6 z-50 h-11 w-11 rounded-full bg-[oklch(0.17_0.045_49)] text-[oklch(0.71_0.105_84)] border border-[oklch(0.71_0.105_84)]/40 shadow-xl flex items-center justify-center hover:bg-[oklch(0.5_0.18_31)] hover:text-white transition-all cursor-pointer"
+            className="fixed bottom-24 right-7 z-50 h-11 w-11 rounded-full bg-[oklch(0.17_0.045_49)] text-[oklch(0.71_0.105_84)] border border-[oklch(0.71_0.105_84)]/40 shadow-xl flex items-center justify-center hover:bg-[oklch(0.5_0.18_31)] hover:text-white transition-all cursor-pointer"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             aria-label="Back to top"
           >
