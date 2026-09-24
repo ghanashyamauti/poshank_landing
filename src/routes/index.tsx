@@ -12,7 +12,9 @@ import {
   MapPin,
   Menu,
   MessageCircle,
+  Pause,
   Phone,
+  Play,
   RotateCcw,
   Scissors,
   ShieldCheck,
@@ -20,6 +22,8 @@ import {
   Star,
   Tag,
   Truck,
+  Volume2,
+  VolumeX,
   X,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
@@ -243,46 +247,82 @@ const GOOGLE_REVIEWS = [
 
 const PICHWAI_FITS = [
   {
-    id: "keyhole",
-    tabLabel: "01 / Sage Keyhole Peplum",
-    badge: "Gen-Z Viral · Street Bestseller",
-    title: "Sage Green Cotton Keyhole Top",
+    id: "sage-petal",
+    tabLabel: "01 / Sage Petal Side-Tie",
+    title: "The Poshakh Sage Petal Side-Tie Top",
+    price: "Rs. 1,624.00",
+    mrp: "Rs. 2,499.00",
+    discount: "35% OFF",
+    silhouette: "Square Cut · Adjustable Side-Tie Bows · Flared Hip Silhouette",
+    printMotif: "Delicate Repeating Botanical Petal Motif on Muted Sage Base",
+    stylingTip: "Cinch the waist bows for a snatched look with relaxed light-wash denim, or wear it loose for a breezy, effortless Indo-Western silhouette.",
+    image: "/media/photos/products/sage-petal_1.jpg",
+    images: [
+      "/media/photos/products/sage-petal_1.jpg",
+      "/media/photos/products/sage-petal_2.jpg",
+      "/media/photos/products/sage-petal_3.jpg",
+      "/media/photos/products/sage-petal_4.jpg",
+      "/media/photos/products/sage-petal_5.jpg",
+      "/media/photos/products/sage-petal_6.jpg",
+      "/media/photos/products/sage-petal_7.jpg",
+      "/media/photos/products/sage-petal_8.jpg",
+    ],
+    tags: ["100% High-Density Cotton", "Adjustable Side-Tie Bows", "Breathable Day-to-Night"],
+    url: "https://poshakhfabrics.com/products/the-poshakh-sage-petal-side-tie-top",
+  },
+  {
+    id: "wrap-around-pichwai",
+    tabLabel: "02 / Wrap Kurti Dress",
+    title: "Wrap Around Kurti Dress — Peacock Elephant Pichwai",
     price: "Rs. 1,850.00",
     mrp: "Rs. 3,699.00",
     discount: "50% OFF",
-    silhouette: "High Mandarin Collar · Teardrop Keyhole Cutout · Flared Peplum",
-    printMotif: "Sacred Grove Miniature Palms & Temple Elephants",
-    stylingTip: "Pair with relaxed light-wash denim, clean loafers, and chunky gold rings for an effortless Indo-Western street aesthetic.",
-    image: "/media/photos/poshakh-halter-sage-grove.jpg",
-    tags: ["Pure Organic Cotton", "The 1-Inch Margin Flex", "Breathable Day-to-Night"],
+    silhouette: "Architectural Crossover V-Neck · Functional Side-Tie Knot · A-Line Hem",
+    printMotif: "Regal Peacock & Elephant Pichwai Temple Motifs in Indigo, Ochre & Cream",
+    stylingTip: "Flaunt solo as a waist-sculpting mini dress for casual weekend outings, or layer over straight pants as a striking asymmetrical fusion kurti.",
+    image: "/media/photos/products/wrap-around-pichwai_1.jpg",
+    images: [
+      "/media/photos/products/wrap-around-pichwai_1.jpg",
+      "/media/photos/products/wrap-around-pichwai_2.jpg",
+      "/media/photos/products/wrap-around-pichwai_3.jpg",
+      "/media/photos/products/wrap-around-pichwai_4.jpg",
+      "/media/photos/products/wrap-around-pichwai_5.jpg",
+      "/media/photos/products/wrap-around-pichwai_6.jpg",
+      "/media/photos/products/wrap-around-pichwai_7.jpg",
+      "/media/photos/products/wrap-around-pichwai_8.jpg",
+    ],
+    tags: ["100% Structured Long-Staple Cotton", "Functional Crossover Wrap", "Temple Heritage Motif"],
+    url: "https://poshakhfabrics.com/products/wrap-around-kurti-dress-peacock-elephant-pichwai",
   },
   {
-    id: "ajrakh",
-    tabLabel: "02 / OG Black Ajrakh Kurti",
-    badge: "Trending · Signature Silhouette",
-    title: "Mirae Classic Kurti: The OG Black Ajrakh",
-    price: "Rs. 1,654.00",
-    mrp: "Rs. 2,899.00",
-    discount: "43% OFF",
-    silhouette: "Square Scoop Neckline · Floating Side Lace-Up Ties · High Slits",
-    printMotif: "Hand-Block Ajrakh Geometric Booti & Indigo Star Clusters",
-    stylingTip: "Pair with wide flared white trousers or tailored cycling shorts for a bold contemporary festival look.",
-    image: "/media/photos/poshakh-halter-kalamkari.jpg",
-    tags: ["Natural Indigo & Madder", "Adjustable Side Ties", "100% Breathable Silk-Cotton"],
-  },
-  {
-    id: "halter",
-    tabLabel: "03 / Pichwai Lotus Halter Tunic",
-    badge: "Runway Edit · Limited Batch",
-    title: "The Pichwai Lotus Halter Tunic",
-    price: "Rs. 2,150.00",
-    mrp: "Rs. 4,200.00",
-    discount: "48% OFF",
-    silhouette: "Backless Halter Silhouette · Flowing Dramatic Tunic Hem",
-    printMotif: "Shrinathji Sacred Lotuses & Gold Dust Floral Canopy",
-    stylingTip: "Pair with ivory wide-leg palazzo pants, sleek hair bun, and architectural brass ear cuffs for evening occasions.",
-    image: "/media/photos/poshakh-halter-pichwai-maroon.jpg",
-    tags: ["Gold Foil Luster Weave", "Deep Open-Back Tie", "1-Inch Custom Tailoring Reserve"],
+    id: "halter-kalamkari",
+    tabLabel: "03 / Halter Neck Kurti",
+    title: "Halter Neck Kurti — Kalamkari Folk Art",
+    price: "Rs. 1,379.00",
+    mrp: "Rs. 2,299.00",
+    discount: "40% OFF",
+    silhouette: "Sleek Halter Neckline · Open Back Tie · Flowing Side Slits",
+    printMotif: "Folk Art Kalamkari Print in Deep Blue, Madder Red & Ochre on Rich Maroon",
+    stylingTip: "Pair with ivory wide-leg palazzo pants or tailored cycling shorts and architectural ear cuffs for effortless day-to-night styling.",
+    image: "/media/photos/products/halter-kalamkari_1.jpg",
+    images: [
+      "/media/photos/products/halter-kalamkari_1.jpg",
+      "/media/photos/products/halter-kalamkari_2.jpg",
+      "/media/photos/products/halter-kalamkari_3.jpg",
+      "/media/photos/products/halter-kalamkari_4.jpg",
+      "/media/photos/products/halter-kalamkari_5.jpg",
+      "/media/photos/products/halter-kalamkari_6.jpg",
+      "/media/photos/products/halter-kalamkari_7.jpg",
+      "/media/photos/products/halter-kalamkari_8.jpg",
+      "/media/photos/products/halter-kalamkari_9.jpg",
+      "/media/photos/products/halter-kalamkari_10.jpg",
+      "/media/photos/products/halter-kalamkari_11.jpg",
+      "/media/photos/products/halter-kalamkari_12.jpg",
+      "/media/photos/products/halter-kalamkari_13.jpg",
+      "/media/photos/products/halter-kalamkari_14.jpg",
+    ],
+    tags: ["Rich Maroon Cotton Blend", "Sleeveless Halter Comfort", "Folk Art Kalamkari"],
+    url: "https://poshakhfabrics.com/products/halter-neck-kurti",
   },
 ] as const;
 
@@ -352,12 +392,35 @@ function PoshakhLanding() {
   const pageRef = useRef<HTMLElement>(null);
 
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activePichwaiFit, setActivePichwaiFit] = useState<"keyhole" | "ajrakh" | "halter">("keyhole");
+  const [activePichwaiFit, setActivePichwaiFit] = useState<string>("sage-petal");
   const [activeDyeFibre, setActiveDyeFibre] = useState<"indigo" | "madder" | "turmeric">("indigo");
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [showPreloader, setShowPreloader] = useState(true);
   const [googleReviewIndex, setGoogleReviewIndex] = useState(0);
   const [instagramPosts, setInstagramPosts] = useState<InstagramPost[]>(LATEST_INSTAGRAM_POSTS);
+  const [activeProductImageIndex, setActiveProductImageIndex] = useState(0);
+  const [isVideoMuted, setIsVideoMuted] = useState(true);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(true);
+  const introVideoRef = useRef<HTMLVideoElement>(null);
+
+  const toggleIntroVideoMute = () => {
+    if (introVideoRef.current) {
+      introVideoRef.current.muted = !isVideoMuted;
+      setIsVideoMuted(!isVideoMuted);
+    }
+  };
+
+  const toggleIntroVideoPlay = () => {
+    if (introVideoRef.current) {
+      if (isVideoPlaying) {
+        introVideoRef.current.pause();
+        setIsVideoPlaying(false);
+      } else {
+        introVideoRef.current.play();
+        setIsVideoPlaying(true);
+      }
+    }
+  };
 
   const currentReview = GOOGLE_REVIEWS[googleReviewIndex];
   const nextReview = () => setGoogleReviewIndex((prev) => (prev + 1) % GOOGLE_REVIEWS.length);
@@ -459,8 +522,12 @@ function PoshakhLanding() {
 
         {/* Global Header */}
         <header className="site-header">
-          <a className="wordmark" href="#top" aria-label="Poshakh home">
-            <span>POSHAKH</span>
+          <a className="wordmark group" href="#top" aria-label="Poshakh home">
+            <img
+              src="/media/brand/poshakh-logo.png"
+              alt="Poshakh"
+              className="h-8 sm:h-9.5 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-md brightness-110"
+            />
             <small>
               <span>Fabrics · Est. 1992</span>
               <span>F.C. Road, Pune</span>
@@ -495,6 +562,16 @@ function PoshakhLanding() {
         {/* Mobile Navigation Drawer */}
         {menuOpen && (
           <nav className="mobile-menu" aria-label="Mobile navigation">
+            <div className="flex flex-col items-center justify-center pb-5 border-b border-white/15 mb-5">
+              <img
+                src="/media/brand/poshakh-logo.png"
+                alt="Poshakh"
+                className="h-11 w-auto object-contain drop-shadow"
+              />
+              <span className="text-[0.62rem] uppercase tracking-[0.24em] text-[oklch(0.71_0.105_84)] font-medium mt-1">
+                F.C. Road, Pune · Est. 1992
+              </span>
+            </div>
             <a href="#top" onClick={() => setMenuOpen(false)}>3D Outfits</a>
             <a href="#pichwai" onClick={() => setMenuOpen(false)}>Pichwai Art</a>
             <a href="#atelier" onClick={() => setMenuOpen(false)}>The Atelier</a>
@@ -603,7 +680,7 @@ function PoshakhLanding() {
             </div>
 
             {/* Interactive Garment Presentation: The Bestseller Fit Explorer */}
-            <div className="space-y-8" data-reveal>
+            <div id="select-fit-section" className="space-y-8" data-reveal>
               {/* Pill Selector */}
               <div className="flex flex-wrap items-center gap-3">
                 <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[oklch(0.49_0.045_58)] mr-2">
@@ -613,7 +690,10 @@ function PoshakhLanding() {
                   <button
                     key={fit.id}
                     type="button"
-                    onClick={() => setActivePichwaiFit(fit.id)}
+                    onClick={() => {
+                      setActivePichwaiFit(fit.id);
+                      setActiveProductImageIndex(0);
+                    }}
                     className={`pichwai-fit-pill ${activePichwaiFit === fit.id ? "active" : ""}`}
                   >
                     {fit.tabLabel}
@@ -623,28 +703,87 @@ function PoshakhLanding() {
 
               {/* Active Fit Spotlight Card */}
               <div className="rounded-3xl border border-[oklch(0.71_0.105_84)]/40 bg-[oklch(0.985_0.014_87)]/95 backdrop-blur-2xl shadow-2xl p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center transition-all duration-500">
-                {/* Product Visual */}
-                <div className="lg:col-span-5 relative group overflow-hidden rounded-2xl shadow-lg border border-[oklch(0.71_0.105_84)]/30 aspect-[3/4] max-h-[500px]">
-                  <img
-                    key={currentFit.id}
-                    src={currentFit.image}
-                    alt={currentFit.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 rounded-full text-[0.65rem] tracking-[0.16em] uppercase font-semibold bg-[oklch(0.17_0.045_49)] text-[oklch(0.71_0.105_84)] backdrop-blur-md shadow">
-                      {currentFit.badge}
-                    </span>
+                {/* Product Visual with < > Navigation & Thumbnails */}
+                <div className="lg:col-span-5 flex flex-col gap-3">
+                  <div className="relative group overflow-hidden rounded-2xl shadow-lg border border-[oklch(0.71_0.105_84)]/30 aspect-[3/4] max-h-[500px] bg-neutral-100">
+                    <img
+                      key={`${currentFit.id}-${activeProductImageIndex}`}
+                      src={currentFit.images[activeProductImageIndex] || currentFit.image}
+                      alt={`${currentFit.title} - View ${activeProductImageIndex + 1}`}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+
+                    {/* Photo Counter Pill */}
+                    <div className="absolute top-4 left-4 z-10">
+                      <span className="px-3 py-1 rounded-full text-[0.65rem] font-mono tracking-wider font-semibold bg-black/65 text-white backdrop-blur-md shadow-sm border border-white/10">
+                        {activeProductImageIndex + 1} / {currentFit.images.length}
+                      </span>
+                    </div>
+
+                    {/* < > Carousel Arrows */}
+                    <div className="absolute inset-y-0 inset-x-2 flex items-center justify-between pointer-events-none z-10">
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setActiveProductImageIndex((prev) =>
+                            prev === 0 ? currentFit.images.length - 1 : prev - 1
+                          );
+                        }}
+                        className="pointer-events-auto w-9 h-9 rounded-full bg-black/55 hover:bg-black/85 active:scale-95 text-white flex items-center justify-center backdrop-blur-md border border-white/20 transition-all shadow-md cursor-pointer"
+                        aria-label="Previous photo"
+                      >
+                        <ChevronLeft size={18} />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setActiveProductImageIndex((prev) =>
+                            (prev + 1) % currentFit.images.length
+                          );
+                        }}
+                        className="pointer-events-auto w-9 h-9 rounded-full bg-black/55 hover:bg-black/85 active:scale-95 text-white flex items-center justify-center backdrop-blur-md border border-white/20 transition-all shadow-md cursor-pointer"
+                        aria-label="Next photo"
+                      >
+                        <ChevronRight size={18} />
+                      </button>
+                    </div>
+
+                    {/* Quick View Button at bottom right */}
+                    <div className="absolute bottom-4 right-4 z-10">
+                      <a
+                        href={currentFit.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-white/90 text-[oklch(0.17_0.045_49)] hover:bg-[oklch(0.17_0.045_49)] hover:text-white transition-colors shadow"
+                      >
+                        Quick View <ArrowUpRight size={14} />
+                      </a>
+                    </div>
                   </div>
-                  <div className="absolute bottom-4 right-4">
-                    <a
-                      href={SHOP_URL}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-white/90 text-[oklch(0.17_0.045_49)] hover:bg-[oklch(0.17_0.045_49)] hover:text-white transition-colors shadow"
-                    >
-                      Quick View <ArrowUpRight size={14} />
-                    </a>
+
+                  {/* Horizontal Thumbnail Strip */}
+                  <div className="flex items-center gap-2 overflow-x-auto pb-1 pt-0.5 scrollbar-thin">
+                    {currentFit.images.map((img, idx) => (
+                      <button
+                        key={idx}
+                        type="button"
+                        onClick={() => setActiveProductImageIndex(idx)}
+                        className={`relative shrink-0 w-11 h-14 rounded-lg overflow-hidden border-2 transition-all cursor-pointer ${
+                          activeProductImageIndex === idx
+                            ? "border-[oklch(0.17_0.045_49)] scale-105 shadow-sm opacity-100"
+                            : "border-transparent opacity-55 hover:opacity-100"
+                        }`}
+                        aria-label={`View photo ${idx + 1}`}
+                      >
+                        <img
+                          src={img}
+                          alt=""
+                          className="w-full h-full object-cover"
+                        />
+                      </button>
+                    ))}
                   </div>
                 </div>
 
@@ -675,7 +814,7 @@ function PoshakhLanding() {
 
                     {/* Live Offers & Service Perks */}
                     <div className="mt-3 flex flex-wrap items-center gap-2">
-                      <span className="promo-ribbon-pill">
+                      <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[0.68rem] font-semibold bg-[oklch(0.71_0.105_84)]/15 text-[oklch(0.5_0.18_31)] border border-[oklch(0.71_0.105_84)]/35">
                         <Tag size={12} /> Buy 2 Get 1 Free Eligible
                       </span>
                       <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[0.68rem] font-medium bg-amber-50 text-amber-900 border border-amber-200">
@@ -720,7 +859,7 @@ function PoshakhLanding() {
                   {/* Direct CTA */}
                   <div className="pt-2 flex flex-wrap items-center gap-4">
                     <a
-                      href={SHOP_URL}
+                      href={currentFit.url}
                       target="_blank"
                       rel="noreferrer"
                       className="inline-flex items-center gap-3 px-8 py-3.5 rounded-full bg-[oklch(0.17_0.045_49)] text-[oklch(0.71_0.105_84)] hover:bg-[oklch(0.5_0.18_31)] hover:text-white transition-all text-xs font-semibold uppercase tracking-[0.2em] shadow-lg"
@@ -735,29 +874,87 @@ function PoshakhLanding() {
               </div>
             </div>
 
-            {/* 3D Motion Stage: pichwai-3d.mp4 */}
+            {/* Product Walkthrough Reel: Video-23402.mp4 */}
             <div className="space-y-6" data-reveal>
               <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
                 <div>
                   <span className="text-[0.68rem] tracking-[0.24em] uppercase text-[oklch(0.5_0.18_31)] font-semibold">
-                    3D Movement Lab
+                    Product Walkthrough · Real Fit & Styling
                   </span>
                   <h3 className="font-display text-3xl sm:text-4xl text-[oklch(0.17_0.045_49)] mt-1">
-                    Watch the Silhouette in Motion
+                    Meet Our Handcrafted Halters in Real Motion
                   </h3>
                 </div>
-                <p className="text-xs text-[oklch(0.49_0.045_58)] max-w-xs">
-                  Real garments tested for full movement, airflow, and open-back drape.
+                <p className="text-xs text-[oklch(0.49_0.045_58)] max-w-sm">
+                  An authentic walkthrough showcasing our breathable pure cotton handblock prints, signature back-tie silhouettes, and real-life styling.
                 </p>
               </div>
 
-              <div className="relative mx-auto max-w-5xl rounded-3xl overflow-hidden shadow-2xl border border-[oklch(0.71_0.105_84)]/30 bg-black aspect-[16/9] max-h-[520px] group">
-                <AmbientFilm
-                  src="/media/videos/pichwai-3d.mp4"
-                  poster="/media/photos/poshakh-halter-pichwai-maroon.jpg"
-                  label="3D Slow camera rotation around model wearing Pichwai Lotus halter tunic"
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-102"
-                />
+              {/* Centered Video Player */}
+              <div className="flex flex-col items-center justify-center py-2">
+                <div className="relative w-full max-w-[270px] sm:max-w-[300px] max-h-[500px] aspect-[9/16] rounded-3xl overflow-hidden shadow-2xl border-2 border-[oklch(0.71_0.105_84)]/40 bg-black group">
+                  <video
+                    ref={introVideoRef}
+                    src="/media/videos/poshakh-product-intro.mp4"
+                    poster="/media/poshakh-product-intro-poster.jpg"
+                    autoPlay
+                    loop
+                    muted={isVideoMuted}
+                    playsInline
+                    className="w-full h-full object-cover"
+                    aria-label="Poshakh product introduction video showing halter kurti fit and styling"
+                  />
+
+                  {/* Bottom Audio & Play Controls Overlay */}
+                  <div className="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-black/85 via-black/40 to-transparent flex items-center justify-between z-20">
+                    {/* Play / Pause Toggle */}
+                    <button
+                      type="button"
+                      onClick={toggleIntroVideoPlay}
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md text-white text-xs font-medium border border-white/25 transition-all shadow-md active:scale-95"
+                      aria-label={isVideoPlaying ? "Pause video" : "Play video"}
+                    >
+                      {isVideoPlaying ? (
+                        <>
+                          <Pause size={13} />
+                          <span className="text-[0.68rem] font-medium">Pause</span>
+                        </>
+                      ) : (
+                        <>
+                          <Play size={13} className="translate-x-0.5" />
+                          <span className="text-[0.68rem] font-medium">Play</span>
+                        </>
+                      )}
+                    </button>
+
+                    {/* Unmute / Mute Toggle Button */}
+                    <button
+                      type="button"
+                      onClick={toggleIntroVideoMute}
+                      className={`flex items-center gap-2 px-3.5 py-1.5 rounded-full backdrop-blur-md text-xs font-semibold border transition-all shadow-lg active:scale-95 ${
+                        isVideoMuted
+                          ? "bg-[oklch(0.5_0.18_31)] text-white border-[oklch(0.71_0.105_84)] hover:bg-[oklch(0.42_0.18_31)] animate-bounce"
+                          : "bg-emerald-600/90 text-white border-emerald-400 hover:bg-emerald-700"
+                      }`}
+                      aria-label={isVideoMuted ? "Unmute audio" : "Mute audio"}
+                    >
+                      {isVideoMuted ? (
+                        <>
+                          <VolumeX size={15} className="text-amber-200" />
+                          <span className="text-[0.72rem] tracking-wide uppercase">Tap to Unmute</span>
+                        </>
+                      ) : (
+                        <>
+                          <Volume2 size={15} />
+                          <span className="text-[0.72rem] tracking-wide uppercase">Sound On</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+                </div>
+                <span className="mt-3 text-[0.7rem] text-[oklch(0.49_0.045_58)] font-medium">
+                  {isVideoMuted ? "🎧 Sound muted by default · Tap to hear product details" : "🔊 Audio playing"}
+                </span>
               </div>
             </div>
 
@@ -826,84 +1023,87 @@ function PoshakhLanding() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {/* Card 1: Maroon Halter Runway */}
+                {/* Card 1: The Pink Shoulder Tie Top */}
                 <div className="group relative rounded-3xl overflow-hidden shadow-xl border border-[oklch(0.71_0.105_84)]/30">
                   <img
-                    src="/media/photos/poshakh-halter-pichwai-maroon.jpg"
-                    alt="Model wearing Maroon Pichwai Halter Tunic"
+                    src="/media/photos/campaign/the-pink-shoulder-tie-top_1.jpg"
+                    alt="Model wearing The Pink Shoulder Tie Top"
                     className="w-full h-[480px] object-cover transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                   <div className="absolute bottom-5 left-5 right-5 text-white flex justify-between items-end">
                     <div>
                       <span className="text-[0.65rem] tracking-[0.2em] uppercase text-[oklch(0.71_0.105_84)]">
-                        The Evening Cut
+                        Shoulder-Tie Cut
                       </span>
-                      <p className="font-display text-xl mt-0.5">Pichwai Lotus Halter</p>
-                      <p className="text-xs text-neutral-300">Rs. 2,150 · Paired with Ivory Flared Pants</p>
+                      <p className="font-display text-xl mt-0.5">The Pink Shoulder Tie Top</p>
+                      <p className="text-xs text-neutral-300">Rs. 1,185 · Delicate Botanical Print</p>
                     </div>
                     <a
-                      href={SHOP_URL}
+                      href="https://poshakhfabrics.com/products/the-pink-shoulder-tie-top"
                       target="_blank"
                       rel="noreferrer"
                       className="p-2.5 rounded-full bg-white/20 hover:bg-white hover:text-black transition-colors backdrop-blur-md"
+                      aria-label="View The Pink Shoulder Tie Top"
                     >
                       <ArrowUpRight size={16} />
                     </a>
                   </div>
                 </div>
 
-                {/* Card 2: Sage Grove Street Pairing */}
+                {/* Card 2: The Poshakh Jharokha Halter Midi Dress */}
                 <div className="group relative rounded-3xl overflow-hidden shadow-xl border border-[oklch(0.71_0.105_84)]/30 md:translate-y-8">
                   <img
-                    src="/media/photos/poshakh-halter-sage-grove.jpg"
-                    alt="Model wearing Sage Green Keyhole Top with relaxed denim"
+                    src="/media/photos/campaign/the-poshakh-jharokha-halter-midi-dress_1.jpg"
+                    alt="Model wearing The Poshakh Jharokha Halter Midi Dress"
                     className="w-full h-[480px] object-cover transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                   <div className="absolute bottom-5 left-5 right-5 text-white flex justify-between items-end">
                     <div>
                       <span className="text-[0.65rem] tracking-[0.2em] uppercase text-[oklch(0.71_0.105_84)]">
-                        Street Bestseller
+                        Heritage Midi Edit
                       </span>
-                      <p className="font-display text-xl mt-0.5">Sage Green Keyhole Top</p>
-                      <p className="text-xs text-neutral-300">Rs. 1,850 · Paired with Light-Wash Denim</p>
+                      <p className="font-display text-xl mt-0.5">The Jharokha Midi Dress</p>
+                      <p className="text-xs text-neutral-300">Rs. 2,254 · Architectural Temple Arch</p>
                     </div>
                     <a
-                      href={SHOP_URL}
+                      href="https://poshakhfabrics.com/products/the-poshakh-jharokha-halter-midi-dress"
                       target="_blank"
                       rel="noreferrer"
                       className="p-2.5 rounded-full bg-white/20 hover:bg-white hover:text-black transition-colors backdrop-blur-md"
+                      aria-label="View The Poshakh Jharokha Halter Midi Dress"
                     >
                       <ArrowUpRight size={16} />
                     </a>
                   </div>
                 </div>
 
-                {/* Card 3: OG Black Ajrakh Festival Pairing */}
+                {/* Card 3: Halter Neck Kurti Peacock Pichwai */}
                 <div className="group relative rounded-3xl overflow-hidden shadow-xl border border-[oklch(0.71_0.105_84)]/30">
                   <img
-                    src="/media/photos/poshakh-halter-kalamkari.jpg"
-                    alt="Model wearing OG Black Ajrakh Side-Tie Kurti"
+                    src="/media/photos/campaign/halter-neck-kurti-peacock-pichwai_1.png"
+                    alt="Model wearing Halter Neck Kurti Peacock Pichwai"
                     className="w-full h-[480px] object-cover transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                   <div className="absolute bottom-5 left-5 right-5 text-white flex justify-between items-end">
                     <div>
                       <span className="text-[0.65rem] tracking-[0.2em] uppercase text-[oklch(0.71_0.105_84)]">
-                        Side-Tie Silhouette
+                        Temple Motif Classic
                       </span>
-                      <p className="font-display text-xl mt-0.5">Mirae OG Black Ajrakh</p>
-                      <p className="text-xs text-neutral-300">Rs. 1,654 · Adjustable lace-up ties</p>
+                      <p className="font-display text-xl mt-0.5">Halter Kurti Peacock Pichwai</p>
+                      <p className="text-xs text-neutral-300">Rs. 1,552 · Indigo Peacocks & Lotuses</p>
                     </div>
                     <a
-                      href={SHOP_URL}
+                      href="https://poshakhfabrics.com/products/halter-neck-kurti-peacock-pichwai"
                       target="_blank"
                       rel="noreferrer"
                       className="p-2.5 rounded-full bg-white/20 hover:bg-white hover:text-black transition-colors backdrop-blur-md"
+                      aria-label="View Halter Neck Kurti Peacock Pichwai"
                     >
                       <ArrowUpRight size={16} />
                     </a>
@@ -1267,10 +1467,10 @@ function PoshakhLanding() {
                       Atelier Study / 01
                     </span>
                     <h4 className="font-display text-3xl sm:text-4xl text-[oklch(0.17_0.045_49)] mt-1">
-                      The Pichwai Halter Tunic
+                      Halter Neck Dress with Pockets
                     </h4>
                     <p className="text-xs font-semibold uppercase tracking-wider text-[oklch(0.71_0.105_84)] mt-1">
-                      Textile: 100% Breathable Cotton Slub · Hand-Block Finished
+                      Textile: 100% Breathable Cotton · Floral Hand-Block Print
                     </p>
                   </div>
 
@@ -1279,7 +1479,7 @@ function PoshakhLanding() {
                       {
                         index: "01",
                         title: "Mandarin Teardrop Keyhole",
-                        desc: "High architectural neck balanced with an open teardrop cut to flatter collarbones.",
+                        desc: "High architectural neck balanced with a teardrop keyhole back cut to flatter shoulders.",
                       },
                       {
                         index: "02",
@@ -1288,8 +1488,8 @@ function PoshakhLanding() {
                       },
                       {
                         index: "03",
-                        title: "Bias-Cut Peplum Flare",
-                        desc: "Precision diagonal grain cut that cascades fluidly over hips without ballooning.",
+                        title: "Deep Functional Pockets",
+                        desc: "Seamless dual side-seam pockets tailored for everyday convenience without disrupting the flared drape.",
                       },
                       {
                         index: "04",
@@ -1317,10 +1517,11 @@ function PoshakhLanding() {
                   </div>
                 </div>
 
-                <div className="lg:col-span-7 relative group rounded-2xl overflow-hidden shadow-xl aspect-[4/3] bg-black">
+                <div className="lg:col-span-7 relative group rounded-2xl overflow-hidden shadow-xl aspect-[16/9] bg-black">
                   <AmbientFilm
-                    src="/media/videos/pichwai-3d.mp4"
-                    label="Slow 3D rotation studying garment construction, neckline, and flared hem"
+                    src="/media/videos/poshakh-racerback-dress.mp4"
+                    poster="/media/poshakh-racerback-dress-poster.jpg"
+                    label="Real motion showcase of Halter Neck Racerback Dress with Pockets"
                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-103"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
@@ -1329,15 +1530,15 @@ function PoshakhLanding() {
                       <span className="text-[0.65rem] tracking-[0.24em] uppercase text-[oklch(0.71_0.105_84)] font-semibold">
                         360° Construction View
                       </span>
-                      <p className="font-display text-xl mt-0.5">Finished Garment on Form</p>
+                      <p className="font-display text-xl mt-0.5">Finished Garment in Real Motion</p>
                     </div>
                     <a
-                      href={SHOP_URL}
+                      href="https://poshakhfabrics.com/products/halter-neck-racerback-dress-with-pockets"
                       target="_blank"
                       rel="noreferrer"
                       className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider bg-white text-black hover:bg-[oklch(0.71_0.105_84)] transition-all shadow"
                     >
-                      View Pattern Fit <ArrowUpRight size={14} />
+                      View Dress Details <ArrowUpRight size={14} />
                     </a>
                   </div>
                 </div>
@@ -1412,10 +1613,17 @@ function PoshakhLanding() {
             >
               <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[oklch(0.71_0.105_84)]/20 pb-6">
                 <div>
-                  <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-[0.65rem] uppercase tracking-[0.22em] bg-[oklch(0.5_0.18_31)]/10 text-[oklch(0.5_0.18_31)] font-semibold">
-                    <Baby size={13} />
-                    Founder Backstory · F.C. Road, Pune · Est. 1992
-                  </span>
+                  <div className="flex items-center gap-3 mb-2">
+                    <img
+                      src="/media/brand/poshakh-logo.png"
+                      alt="Poshakh"
+                      className="h-8 w-auto object-contain"
+                    />
+                    <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-[0.65rem] uppercase tracking-[0.22em] bg-[oklch(0.5_0.18_31)]/10 text-[oklch(0.5_0.18_31)] font-semibold">
+                      <Baby size={13} />
+                      Founder Backstory · F.C. Road, Pune · Est. 1992
+                    </span>
+                  </div>
                   <h3 className="font-display text-3xl sm:text-5xl text-[oklch(0.17_0.045_49)] mt-3">
                     The Maternity Genesis:
                     <em className="block text-[oklch(0.71_0.105_84)]">Where Tradition Meets Motherhood.</em>
@@ -1600,51 +1808,87 @@ function PoshakhLanding() {
           {/* Haute Couture 3D Editorial Gallery */}
           <div className="editorial-gallery">
             <figure className="editorial-frame indigo-frame" data-reveal>
-              <div className="image-depth rounded-xl overflow-hidden">
-                <img
-                  src="/media/photos/poshakh-halter-kalamkari.jpg"
-                  alt="Poshakh Earthy Kalamkari Halter Top in terracotta rust and indigo with blue jeans"
-                  loading="lazy"
-                  width={1280}
-                  height={1600}
-                />
-              </div>
-              <figcaption>
-                <span>Earthy Kalamkari</span>
-                <small>Halter Top / Terracotta & Indigo</small>
-              </figcaption>
+              <a
+                href="https://poshakhfabrics.com/products/black-cotton-halter-neck-top-indo-western-short-kurti"
+                target="_blank"
+                rel="noreferrer"
+                className="block text-inherit no-underline group"
+                aria-label="View Black Cotton Halter Neck Top"
+              >
+                <div className="image-depth rounded-xl overflow-hidden relative">
+                  <img
+                    src="/media/photos/editorial/black-cotton-halter_1.jpg"
+                    alt="Model wearing Black Cotton Halter Neck Top - Indo Western Short Kurti"
+                    loading="lazy"
+                    width={1080}
+                    height={1350}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute top-3 right-3 p-2 rounded-full bg-black/50 text-white opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+                    <ArrowUpRight size={14} />
+                  </div>
+                </div>
+                <figcaption>
+                  <span className="group-hover:text-[oklch(0.71_0.105_84)] transition-colors">Black Cotton Halter</span>
+                  <small>Indo-Western Short Kurti · Rs. 1,364</small>
+                </figcaption>
+              </a>
             </figure>
 
             <figure className="editorial-frame lotus-frame" data-reveal>
-              <div className="image-depth rounded-xl overflow-hidden">
-                <img
-                  src="/media/photos/poshakh-halter-sage-grove.jpg"
-                  alt="Poshakh Sacred-Grove Vanaspati Halter Top in sage green and gold Pichwai print with white trousers"
-                  loading="lazy"
-                  width={1600}
-                  height={1104}
-                />
-              </div>
-              <figcaption>
-                <span>Sacred Grove Halter</span>
-                <small>Vanaspati Sage / Temple Arches</small>
-              </figcaption>
+              <a
+                href="https://poshakhfabrics.com/products/olive-green-cotton-keyhole-tie-up-short-kurti"
+                target="_blank"
+                rel="noreferrer"
+                className="block text-inherit no-underline group"
+                aria-label="View Olive Green Cotton Keyhole Tie-Up Short Kurti"
+              >
+                <div className="image-depth rounded-xl overflow-hidden relative">
+                  <img
+                    src="/media/photos/editorial/olive-green-keyhole_1.jpg"
+                    alt="Model wearing Olive Green Cotton Keyhole Tie-Up Short Kurti"
+                    loading="lazy"
+                    width={4000}
+                    height={5000}
+                    className="w-full h-full object-cover object-[center_20%] transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute top-3 right-3 p-2 rounded-full bg-black/50 text-white opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+                    <ArrowUpRight size={14} />
+                  </div>
+                </div>
+                <figcaption>
+                  <span className="group-hover:text-[oklch(0.71_0.105_84)] transition-colors">Olive Green Keyhole</span>
+                  <small>Keyhole Tie-Up / Pure Cotton · Rs. 1,785</small>
+                </figcaption>
+              </a>
             </figure>
 
             <figure className="editorial-frame vermilion-frame" data-reveal>
-              <div className="image-depth rounded-xl overflow-hidden">
-                <img
-                  src="/media/photos/poshakh-halter-pichwai-maroon.jpg"
-                  alt="Poshakh The Pichwai Halter Top in maroon and black with sacred white cows and lotus flowers"
-                  loading="lazy"
-                  width={1280}
-                  height={1600}
-                />
-              </div>
-              <figcaption>
-                <span>The Pichwai Tunic</span>
-                <small>Maroon & Gold / Shrinathji Lotus</small>
-              </figcaption>
+              <a
+                href="https://poshakhfabrics.com/products/earthy-olive-brown-cotton-short-kurti-notch-neck-daily-wear-tunic"
+                target="_blank"
+                rel="noreferrer"
+                className="block text-inherit no-underline group"
+                aria-label="View Earthy Olive Brown Cotton Short Kurti"
+              >
+                <div className="image-depth rounded-xl overflow-hidden relative">
+                  <img
+                    src="/media/photos/editorial/earthy-olive-brown_1.jpg"
+                    alt="Model wearing Earthy Olive Brown Cotton Short Kurti - Notch Neck Daily Wear Tunic"
+                    loading="lazy"
+                    width={4000}
+                    height={5000}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute top-3 right-3 p-2 rounded-full bg-black/50 text-white opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+                    <ArrowUpRight size={14} />
+                  </div>
+                </div>
+                <figcaption>
+                  <span className="group-hover:text-[oklch(0.71_0.105_84)] transition-colors">Earthy Olive Brown</span>
+                  <small>Notch Neck Daily Wear Tunic · Rs. 1,899</small>
+                </figcaption>
+              </a>
             </figure>
           </div>
 
@@ -1889,8 +2133,15 @@ function PoshakhLanding() {
           <div className="relative z-10 max-w-7xl mx-auto space-y-12">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6" data-reveal>
               <div>
-                <div className="section-index !text-[oklch(0.71_0.105_84)]">
-                  FLAGSHIP ATELIER · PUNE &amp; DIRECT CONCIERGE
+                <div className="flex items-center gap-3 mb-2">
+                  <img
+                    src="/media/brand/poshakh-logo.png"
+                    alt="Poshakh"
+                    className="h-8 w-auto object-contain brightness-125 drop-shadow"
+                  />
+                  <span className="section-index !text-[oklch(0.71_0.105_84)] !mb-0 border-l border-[oklch(0.71_0.105_84)]/40 pl-3">
+                    FLAGSHIP ATELIER · PUNE &amp; DIRECT CONCIERGE
+                  </span>
                 </div>
                 <h2 id="flagship-heading" className="mt-3 font-display text-4xl sm:text-6xl text-white">
                   Visit the loom.
@@ -2131,9 +2382,13 @@ function PoshakhLanding() {
               
               {/* Col 1: Brand & Heritage (4 cols) */}
               <div className="lg:col-span-4 space-y-4">
-                <a className="wordmark" href="#top" aria-label="Poshakh home">
-                  <span>POSHAKH</span>
-                  <small>
+                <a className="wordmark group !items-start" href="#top" aria-label="Poshakh home">
+                  <img
+                    src="/media/brand/poshakh-logo.png"
+                    alt="Poshakh"
+                    className="h-8 sm:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-md brightness-110"
+                  />
+                  <small className="!items-start">
                     <span>Fabrics · Est. 1992</span>
                     <span>F.C. Road, Pune</span>
                   </small>

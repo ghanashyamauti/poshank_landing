@@ -179,9 +179,15 @@ export function Preloader({ onComplete }: PreloaderProps) {
 
       {/* Minimal Top Brand Watermark */}
       <div className="relative z-20 flex w-full max-w-6xl mx-auto items-center justify-between p-6 md:p-12 text-[oklch(0.71_0.105_84)] pointer-events-none">
-        <div className="inline-flex items-center gap-2 text-[0.68rem] uppercase tracking-[0.3em] font-medium">
-          <span className="h-1.5 w-1.5 rounded-full bg-[oklch(0.71_0.105_84)] animate-pulse" />
-          Poshakh Fabrics · Est. 1992 · F.C. Road, Pune
+        <div className="inline-flex items-center gap-3">
+          <img
+            src="/media/brand/poshakh-logo.png"
+            alt="Poshakh"
+            className="h-8 md:h-9 w-auto object-contain brightness-125 drop-shadow-md"
+          />
+          <span className="text-[0.68rem] uppercase tracking-[0.25em] font-medium text-[oklch(0.71_0.105_84)] border-l border-[oklch(0.71_0.105_84)]/40 pl-3">
+            Est. 1992 · F.C. Road, Pune
+          </span>
         </div>
       </div>
 
